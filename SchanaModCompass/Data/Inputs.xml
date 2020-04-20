@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<modded_inputs>
+    <inputs>
+        <actions>
+            <input name="UASchanaCompassToggle" loc="Compass Toggle" />
+        </actions>
+    </inputs>
+    <preset>
+        <input name="UASchanaCompassToggle">
+            <btn name="kH" />
+        </input>
+    </preset>
+</modded_inputs>

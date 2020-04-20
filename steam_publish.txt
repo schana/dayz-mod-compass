@@ -1,0 +1,10 @@
+[h1]SchanaModCompass[/h1]
+
+An Open Source DayZ mod to 
+
+You are free to use this mod on your monetized servers. If you repack or use the code in a Derivative Work, you [b]must[/b] include the entire contents of the NOTICE file in a readable place in accordance with the Apache License.
+
+This mod originated from the Carim DayZ project
+The original source is at https://github.com/schana/dayz-mod-compass
+To support this open source project, you can donate at https://paypal.me/cnofafva
+To learn more visit https://discord.gg/kdPnVu4
