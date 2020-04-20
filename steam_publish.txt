@@ -1,6 +1,4 @@
-[h1]SchanaModCompass[/h1]
-
-An Open Source DayZ mod to 
+An Open Source DayZ mod to display a compass heading. Toggle on and off the display at the top of the screen with the press of a configurable key (default: 'H').
 
 You are free to use this mod on your monetized servers. If you repack or use the code in a Derivative Work, you [b]must[/b] include the entire contents of the NOTICE file in a readable place in accordance with the Apache License.
 
