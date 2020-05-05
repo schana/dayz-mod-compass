@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{B391CBD317077E04}SchanaModCompass/GUI/Compass.png"
+ Author "desktop-f8nisub"
+ ChangeDate 774023333
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "Compass.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

@@ -1,17 +1,56 @@
-TextWidgetClass rootFrame {
+FrameWidgetClass rootFrame {
  visible 1
  ignorepointer 1
  position 0 0
  size 1 1
- hexactpos 1
- vexactpos 1
+ hexactpos 0
+ vexactpos 0
  hexactsize 0
  vexactsize 0
  scaled 1
- style Bold
- text "Heading"
- font "gui/fonts/metron-bold48"
- "exact text" 1
- "size to text v" 1
- "text halign" center
+ {
+  TextWidgetClass TextHeading {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   text "Heading"
+   font "gui/fonts/metron-bold48"
+   "size to text v" 1
+   "text halign" center
+  }
+  FrameWidgetClass FrameWidget0 {
+   ignorepointer 1
+   position 0.25 0
+   size 0.5 80
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 1
+   {
+    ImageWidgetClass ImageCompass {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position -1 0
+     size 3 1
+     hexactpos 0
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     scaled 1
+     imageTexture "{B391CBD317077E04}SchanaModCompass/GUI/Compass.edds"
+     mode additive
+     "src alpha" 1
+     "no wrap" 1
+     stretch 1
+     "flip u" 0
+     "flip v" 0
+    }
+   }
+  }
+ }
 }
