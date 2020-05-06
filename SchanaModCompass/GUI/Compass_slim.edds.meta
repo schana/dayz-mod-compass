@@ -1,10 +1,10 @@
 MetaFileClass {
- Name "{B391CBD317077E04}SchanaModCompass/GUI/Compass.png"
+ Name "{B8F3C98074320132}SchanaModCompass/GUI/Compass_slim.edds"
  Author "desktop-f8nisub"
- ChangeDate 774023333
+ ChangeDate 42117286
  Configurations {
   PNGResourceClass PC {
-   SourceFile "Compass.png"
+   SourceFile "Compass_slim.png"
   }
   PNGResourceClass XBOX_ONE : PC {
   }

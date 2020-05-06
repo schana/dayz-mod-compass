@@ -1,12 +1,15 @@
 class SchanaHeadingMenu extends UIScriptedMenu {
     private Widget m_SchanaHeadingRootWidget;
     private TextWidget m_SchanaHeadingTextWidget;
+    private Widget m_SchanaCompassFrameWidget;
     private ImageWidget m_SchanaCompassImageWidget;
     private bool m_SchanaIsVisible;
+    private bool m_SchanaHeadingVisible = false;
 
     void SchanaHeadingMenu (bool visible) {
         m_SchanaHeadingRootWidget = GetGame ().GetWorkspace ().CreateWidgets ("SchanaModCompass/GUI/Layouts/compass.layout");
         m_SchanaHeadingTextWidget = TextWidget.Cast (m_SchanaHeadingRootWidget.FindAnyWidget ("TextHeading"));
+        m_SchanaCompassFrameWidget = m_SchanaHeadingRootWidget.FindAnyWidget ("FrameCompass");
         m_SchanaCompassImageWidget = ImageWidget.Cast (m_SchanaHeadingRootWidget.FindAnyWidget ("ImageCompass"));
         m_SchanaIsVisible = visible;
 
@@ -23,6 +26,10 @@ class SchanaHeadingMenu extends UIScriptedMenu {
     void SchanaUpdate () {
         if (m_SchanaIsVisible && m_SchanaHeadingRootWidget != null && GetGame ().GetPlayer ()) {
             float angle = SchanaGetAngle ();
+
+            m_SchanaCompassFrameWidget.Show (!m_SchanaHeadingVisible);
+            m_SchanaHeadingTextWidget.Show (m_SchanaHeadingVisible);
+
             m_SchanaHeadingTextWidget.SetText (SchanaGetHeading (angle));
             SchanaSetCompassPos (angle);
             m_SchanaHeadingRootWidget.Update ();
@@ -42,10 +49,12 @@ class SchanaHeadingMenu extends UIScriptedMenu {
         m_SchanaCompassImageWidget.GetPos (x, y);
         m_SchanaCompassImageWidget.GetSize (width, height);
 
+        float center_offset = width / -2.0 + 0.5;
+
         if (angle > 180) {
             angle = angle - 360;
         }
-        float offset = (angle / -180.0) - 1;
+        float offset = angle * (center_offset / 180.0) + center_offset;
 
         m_SchanaCompassImageWidget.SetPos (offset, y);
     }
@@ -61,6 +70,13 @@ class SchanaHeadingMenu extends UIScriptedMenu {
     }
 
     void SchanaToggleHeading () {
-        m_SchanaIsVisible = !m_SchanaIsVisible;
+        if (!m_SchanaIsVisible) {
+            m_SchanaIsVisible = true;
+        } else {
+            if (m_SchanaHeadingVisible) {
+                m_SchanaIsVisible = false;
+            }
+            m_SchanaHeadingVisible = !m_SchanaHeadingVisible;
+        }
     }
 }
