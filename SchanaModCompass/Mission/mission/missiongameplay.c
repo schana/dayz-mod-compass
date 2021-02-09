@@ -7,7 +7,7 @@ modded class MissionGameplay extends MissionBase {
         if (GetUApi ()) {
             UAInput inp = GetUApi ().GetInputByName ("UASchanaCompassToggle");
 
-            if (inp && inp.LocalPress ()) {
+            if (inp && inp.LocalPress () && !m_UIManager.IsMenuOpen (MENU_CHAT_INPUT)) {
                 if (m_SchanaHeadingMenu) {
                     m_SchanaHeadingMenu.SchanaToggleHeading ();
                 } else {
