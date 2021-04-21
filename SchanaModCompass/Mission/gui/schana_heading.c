@@ -24,6 +24,9 @@ class SchanaHeadingMenu extends UIScriptedMenu {
     }
 
     void SchanaUpdate () {
+		if (!CanUseMenuCompass()) {
+            m_SchanaIsVisible = false;
+        }
         if (m_SchanaIsVisible && m_SchanaHeadingRootWidget != null && GetGame ().GetPlayer ()) {
             float angle = SchanaGetAngle ();
 
@@ -70,6 +73,10 @@ class SchanaHeadingMenu extends UIScriptedMenu {
     }
 
     void SchanaToggleHeading () {
+		if (!CanUseMenuCompass()) {
+            m_SchanaIsVisible = false;
+			return
+        }
         if (!m_SchanaIsVisible) {
             m_SchanaIsVisible = true;
         } else {
@@ -79,4 +86,30 @@ class SchanaHeadingMenu extends UIScriptedMenu {
             m_SchanaHeadingVisible = !m_SchanaHeadingVisible;
         }
     }
+	
+	// Check if user has compass item. If so, return true.
+	// Otherwise, it will return false and not allow player to
+	// see the compass heading UI.
+	bool CanUseMenuCompass() {
+		// If required compass is disabled in config, return always true.
+		if (!GetSchanaCompassServerSettings().GetRequireCompassItemInInventory()) return true;
+		
+		DayZPlayer player = DayZPlayer.Cast(GetGame().GetPlayer());
+		if (!player) return false;
+		
+		array<EntityAI> itemsArray = new array<EntityAI>;
+		player.GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, itemsArray);
+		
+		for (int i = 0; i < itemsArray.Count(); i++) {
+			if (itemsArray.Get(i)) { 
+				string itemType = itemsArray.Get(i).GetType();
+				itemType.ToLower();
+				if (itemType.Contains("compass")) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 }
