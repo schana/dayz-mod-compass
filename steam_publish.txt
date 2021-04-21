@@ -4,7 +4,7 @@ UPDATE:
 Server owners can configure if survivors must have a compass in their inventory to allow seeing the UI. Default configuration:
 [code]
 {
-    "requireCompassItemInInventory": 1
+    "requireCompassItemInInventory": 0
 }
 [/code]
 
