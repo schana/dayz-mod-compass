@@ -1,5 +1,13 @@
 An Open Source DayZ mod to display a compass heading. Toggle on and off the display at the top of the screen with the press of a configurable key (default: 'H').
 
+UPDATE:
+Server owners can configure if survivors must have a compass in their inventory to allow seeing the UI. Default configuration:
+[code]
+{
+    "requireCompassItemInInventory": 1
+}
+[/code]
+
 You are free to use this mod on your monetized servers. If you repack or use the code in a Derivative Work, you [b]must[/b] include the entire contents of the NOTICE file in a readable place in accordance with the Apache License.
 
 This mod originated from the Carim DayZ project
